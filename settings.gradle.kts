@@ -1,1 +1,1 @@
-rootProject.name = "test-templates"
+rootProject.name = "test-case-generator"

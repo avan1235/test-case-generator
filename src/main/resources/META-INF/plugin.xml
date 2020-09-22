@@ -1,19 +1,17 @@
 <idea-plugin>
-    <id>com.github.avan1235.testtemplates</id>
-    <name>test-templates</name>
-    <vendor>avan1235</vendor>
+    <id>com.procyk.maciej.tcgenerator</id>
+    <name>Test Case Generator</name>
+    <vendor>Maciej Procyk</vendor>
 
-    <!-- Product and plugin compatibility requirements -->
-    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.avan1235.testtemplates.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.avan1235.testtemplates.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.procyk.maciej.tcgenerator.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.procyk.maciej.tcgenerator.services.MyProjectService"/>
     </extensions>
 
     <projectListeners>
-        <listener class="com.github.avan1235.testtemplates.listeners.MyProjectManagerListener"
+        <listener class="com.procyk.maciej.tcgenerator.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </projectListeners>
 </idea-plugin>

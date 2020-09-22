@@ -1,4 +1,4 @@
-package com.github.avan1235.testtemplates
+package com.procyk.maciej.tcgenerator
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls

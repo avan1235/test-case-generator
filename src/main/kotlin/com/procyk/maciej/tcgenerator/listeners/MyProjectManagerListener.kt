@@ -1,8 +1,8 @@
-package com.github.avan1235.testtemplates.listeners
+package com.procyk.maciej.tcgenerator.listeners
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener
-import com.github.avan1235.testtemplates.services.MyProjectService
+import com.procyk.maciej.tcgenerator.services.MyProjectService
 
 internal class MyProjectManagerListener : ProjectManagerListener {
 

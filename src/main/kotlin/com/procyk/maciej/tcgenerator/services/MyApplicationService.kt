@@ -1,6 +1,6 @@
-package com.github.avan1235.testtemplates.services
+package com.procyk.maciej.tcgenerator.services
 
-import com.github.avan1235.testtemplates.MyBundle
+import com.procyk.maciej.tcgenerator.MyBundle
 
 class MyApplicationService {
 
