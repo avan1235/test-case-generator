@@ -14,4 +14,10 @@
         <listener class="com.procyk.maciej.tcgenerator.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </projectListeners>
+    <actions>
+        <action id="com.procyk.maciej.tcgenerator.MyAction" class="com.procyk.maciej.tcgenerator.MyAction"
+                text="Project View Action" description="Actio for clicking on project view">
+            <add-to-group group-id="PopupMenuActions" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>

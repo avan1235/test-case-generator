@@ -32,7 +32,7 @@ repositories {
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.13.1")
 
-    listOf("fuel", "fuel-coroutines", "fuel-kotlinx-serialization").forEach {
+    listOf("fuel", "fuel-coroutines", "fuel-jackson").forEach {
         implementation(group = "com.github.kittinunf.fuel", name = it, version = "2.2.3")
     }
 }
