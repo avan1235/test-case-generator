@@ -7,7 +7,7 @@ import com.github.kittinunf.fuel.jackson.responseObject
 
 class JiraClient(
     private val baseURL: String,
-    private val authorization: JiraAuthorization,
+    private val authorization: JiraAuthorization
 ) {
 
     fun getJiraIssueId(issueKey: String): JiraIssueId {
@@ -17,9 +17,9 @@ class JiraClient(
     }
 
     fun getJiraIssuePart(issueId: Int, offset: Int): JiraIssue {
-        val (_, _, result) = jiraGetRequest("$baseURL/rest/qtm/latest/" +
-            "teststep?&testCaseIssueId=$issueId&maxResults=10&offset=$offset")
-            .responseObject<JiraIssue>()
+        val (_, _, result) =
+            jiraGetRequest("$baseURL/rest/qtm/latest/teststep?&testCaseIssueId=$issueId&maxResults=10&offset=$offset")
+                .responseObject<JiraIssue>()
         return result.get()
     }
 
