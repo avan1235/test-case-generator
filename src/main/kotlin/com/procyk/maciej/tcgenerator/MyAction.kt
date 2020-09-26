@@ -14,8 +14,7 @@ class MyAction : AnAction() {
         val presentation = e.presentation
         if (e.place == ActionPlaces.PROJECT_VIEW_POPUP) {
             presentation.text = "popup her :D"
-        }
-        else if (e.place == ActionPlaces.PROJECT_VIEW_TOOLBAR) {
+        } else if (e.place == ActionPlaces.PROJECT_VIEW_TOOLBAR) {
             presentation.text = "toolbar here :)"
         }
     }

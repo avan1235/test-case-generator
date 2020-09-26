@@ -17,7 +17,7 @@
     <actions>
         <action id="com.procyk.maciej.tcgenerator.MyAction" class="com.procyk.maciej.tcgenerator.MyAction"
                 text="Project View Action" description="Actio for clicking on project view">
-            <add-to-group group-id="PopupMenuActions" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
     </actions>
 </idea-plugin>

@@ -20,5 +20,4 @@ class JiraProvider(jiraBaseUrl: String, jiraAuthorization: JiraAuthorization) : 
         } while (lastReceived > 0)
         return jiraStepUnits.sortedBy { it.seqNo }.toBaseModel()
     }
-
 }
