@@ -23,9 +23,9 @@ class JiraConfigurationDialog : DialogWrapper(true), UserInputCollector<JiraProv
         }
         row("Template file:") {
             textFieldWithBrowseButton(
-                    browseDialogTitle = "Select",
-                    fileChooserDescriptor = createSingleFileDescriptor("ftl"),
-                    prop = instance.jiraConfiguration::templateFilePath
+                browseDialogTitle = "Select",
+                fileChooserDescriptor = createSingleFileDescriptor("ftl"),
+                prop = instance.jiraConfiguration::templateFilePath
             )
         }
     }
@@ -33,13 +33,13 @@ class JiraConfigurationDialog : DialogWrapper(true), UserInputCollector<JiraProv
     override fun generateTestCaseProvider(): JiraProvider? {
         showAndGet().valid() ?: return null
         val password = askCredentials(
-                project = null,
-                dialogTitle = "Enter Jira Password",
-                passwordFieldLabel = "Jira Password",
-                attributes = JIRA_CREDENTIAL_ATTRIBUTES,
-                isSaveOnOk = false,
-                isCheckExistingBeforeDialog = false,
-                isResetPassword = false
+            project = null,
+            dialogTitle = "Enter Jira Password",
+            passwordFieldLabel = "Jira Password",
+            attributes = JIRA_CREDENTIAL_ATTRIBUTES,
+            isSaveOnOk = false,
+            isCheckExistingBeforeDialog = false,
+            isResetPassword = false
         )?.credentials?.getPasswordAsString() ?: ""
         return JiraProvider(instance.jiraConfiguration, JiraCredentials(password))
     }

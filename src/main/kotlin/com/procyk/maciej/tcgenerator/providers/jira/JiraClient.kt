@@ -9,15 +9,15 @@ import com.procyk.maciej.tcgenerator.model.UserInput
 import java.nio.charset.StandardCharsets
 
 class JiraClient(
-        private val configuration: JiraConfiguration,
-        private val credentials: JiraCredentials
+    private val configuration: JiraConfiguration,
+    private val credentials: JiraCredentials
 ) {
 
     fun getJiraIssueId(issueKey: UserInput): JiraIssueId {
         val url = configuration.standardizedUrl()
         val requestPath = "$url/rest/api/2/issue/${issueKey.value}"
         val (_, _, result) = jiraAuthorizedGetRequest(requestPath)
-                .responseObject<JiraIssueId>()
+            .responseObject<JiraIssueId>()
         return result.get()
     }
 

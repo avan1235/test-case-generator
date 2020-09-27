@@ -1,5 +1,6 @@
 package com.procyk.maciej.tcgenerator
 
+import com.github.kittinunf.fuel.core.HttpException
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -18,10 +19,9 @@ class GenerateTestCaseAction : AnAction() {
             return
         }
 
-        val project = event.getData(CommonDataKeys.PROJECT) ?: return
         val message = try {
             TestCaseGeneratorDialog(JiraConfigurationDialog()).generateTestCase().toString()
-        } catch (e: Exception) {
+        } catch (e: HttpException) {
             e.message
         }
         showNotification(message ?: "No data")
