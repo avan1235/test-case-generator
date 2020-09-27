@@ -3,6 +3,18 @@
 # Test Case Generator Changelog
 
 ## [Unreleased]
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+## [0.0.2]
 
 ## [0.0.1]
 ### Added
