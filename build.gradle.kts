@@ -35,6 +35,7 @@ dependencies {
     listOf("fuel", "fuel-coroutines", "fuel-jackson").forEach {
         implementation(group = "com.github.kittinunf.fuel", name = it, version = "2.2.3")
     }
+    implementation("org.freemarker:freemarker:2.3.30")
 }
 
 intellij {
@@ -43,11 +44,6 @@ intellij {
     type = platformType
     downloadSources = platformDownloadSources.toBoolean()
     updateSinceUntilBuild = true
-
-//  Plugin Dependencies:
-//  https://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/plugin_dependencies.html
-//
-//  setPlugins("java")
 }
 
 detekt {

@@ -3,10 +3,11 @@ package com.procyk.maciej.tcgenerator.model
 import java.lang.StringBuilder
 
 data class TestCase(
-    val testSteps: List<TestStep>
+    val details: String,
+    val steps: List<TestStep>
 ) {
     override fun toString() = with(StringBuilder(TEST_STEP_DELIMITER)) {
-        this@TestCase.testSteps.forEach { step ->
+        this@TestCase.steps.forEach { step ->
             append(step)
             append(TEST_STEP_DELIMITER)
         }

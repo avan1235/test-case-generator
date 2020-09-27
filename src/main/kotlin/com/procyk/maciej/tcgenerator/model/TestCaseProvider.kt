@@ -2,7 +2,7 @@ package com.procyk.maciej.tcgenerator.model
 
 interface TestCaseProvider {
 
-    fun provideTestCaseForUserInput(userInput: String): TestCase
+    fun provideTestCaseForUserInput(userInput: UserInput): TestCase
 }
 
-inline fun <T> List<T>.collectMappedTestSteps(mapper: (T) -> TestStep) = TestCase(this.map(mapper))
+inline fun <T> List<T>.collectMappedTestSteps(details: String, mapper: (T) -> TestStep) = TestCase(details, map(mapper))

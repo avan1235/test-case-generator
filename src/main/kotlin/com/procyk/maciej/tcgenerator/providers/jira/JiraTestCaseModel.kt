@@ -9,5 +9,5 @@ data class JiraTestStep(val stepDetails: String, val testData: String, val expec
 data class JiraResult(val stepUnits: List<JiraTestStep>)
 data class JiraIssue(val success: Boolean, val result: JiraResult)
 
-fun List<JiraTestStep>.toBaseModel(): TestCase =
-    collectMappedTestSteps { TestStep(it.stepDetails, it.testData, it.expectedResult) }
+fun List<JiraTestStep>.toBaseModel(id: JiraIssueId): TestCase =
+    collectMappedTestSteps(id.id.toString()) { TestStep(it.stepDetails, it.testData, it.expectedResult) }

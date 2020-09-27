@@ -6,8 +6,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.procyk.maciej.tcgenerator.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.procyk.maciej.tcgenerator.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.procyk.maciej.tcgenerator.services.ApplicationService"/>
+        <projectService serviceImplementation="com.procyk.maciej.tcgenerator.services.ProjectService"/>
     </extensions>
 
     <projectListeners>
@@ -15,9 +15,11 @@
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </projectListeners>
     <actions>
-        <action id="com.procyk.maciej.tcgenerator.MyAction" class="com.procyk.maciej.tcgenerator.MyAction"
-                text="Project View Action" description="Actio for clicking on project view">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        <action id="com.procyk.maciej.tcgenerator.GenerateTestCaseAction"
+                class="com.procyk.maciej.tcgenerator.GenerateTestCaseAction"
+                text="Test Case"
+                description="Generate test case based on specified template">
+            <add-to-group group-id="NewGroup" relative-to-action="NewFromTemplate" anchor="after"/>
         </action>
     </actions>
 </idea-plugin>

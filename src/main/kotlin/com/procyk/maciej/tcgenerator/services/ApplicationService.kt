@@ -2,7 +2,7 @@ package com.procyk.maciej.tcgenerator.services
 
 import com.procyk.maciej.tcgenerator.MyBundle
 
-class MyApplicationService {
+class ApplicationService {
 
     init {
         println(MyBundle.message("applicationService"))
