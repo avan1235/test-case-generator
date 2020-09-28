@@ -7,9 +7,16 @@ import com.intellij.notification.Notifications
 private const val GROUP_DISPLAY_ID = "Test Case Generator"
 
 fun showNotification(
-    message: String,
+    message: String?,
     title: String = "Test Case Generator",
     type: NotificationType = NotificationType.INFORMATION
 ) {
-    Notification(GROUP_DISPLAY_ID, title, message, type).let(Notifications.Bus::notify)
+    Notification(GROUP_DISPLAY_ID, title, message ?: "null", type).let(Notifications.Bus::notify)
+}
+
+fun <T> T?.notifyOnNull(message: String): T? {
+    if (this == null) {
+        showNotification(message)
+    }
+    return this
 }

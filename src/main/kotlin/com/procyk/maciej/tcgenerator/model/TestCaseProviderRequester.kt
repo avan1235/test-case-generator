@@ -1,6 +1,6 @@
 package com.procyk.maciej.tcgenerator.model
 
-interface UserInputCollector<P : TestCaseProvider> {
+interface TestCaseProviderRequester<P : TestCaseProvider> {
 
     fun generateTestCaseProvider(): P?
 }

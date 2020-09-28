@@ -21,10 +21,10 @@ class JiraClient(
         return result.get()
     }
 
-    fun getJiraIssuePart(issueId: JiraIssueId, offset: Int): JiraIssue {
+    fun getJiraIssuePart(issueId: JiraIssueId, offset: Int): JiraIssueRequest {
         val url = configuration.standardizedUrl()
         val requestPath = "$url/rest/qtm/latest/teststep?&testCaseIssueId=${issueId.id}&maxResults=10&offset=$offset"
-        val (_, _, result) = jiraAuthorizedGetRequest(requestPath).responseObject<JiraIssue>()
+        val (_, _, result) = jiraAuthorizedGetRequest(requestPath).responseObject<JiraIssueRequest>()
         return result.get()
     }
 

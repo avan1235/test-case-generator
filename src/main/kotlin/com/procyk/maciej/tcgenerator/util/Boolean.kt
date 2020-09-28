@@ -1,5 +1,3 @@
 package com.procyk.maciej.tcgenerator.util
 
-fun Boolean.valid(): Valid? = if (this) Valid else null
-
-object Valid
+fun Boolean.validate(): Valid? = if (this) Valid else null

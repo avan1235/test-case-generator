@@ -5,27 +5,30 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
+import com.procyk.maciej.tcgenerator.model.ConfigurationService
 
 data class JiraConfiguration(
     var url: String = "",
     var username: String = "",
-    var templateFilePath: String = "",
+    var rememberSettings: Boolean = false,
 )
 
 @Service
 @State(name = "JiraConfiguration", storages = [Storage("jiraConfiguration.xml")])
-class JiraConfigurationService : PersistentStateComponent<JiraConfiguration> {
+class JiraConfigurationService : PersistentStateComponent<JiraConfiguration>, ConfigurationService {
 
     companion object {
         val instance: JiraConfigurationService
             get() = ServiceManager.getService(JiraConfigurationService::class.java)
     }
 
-    var jiraConfiguration = JiraConfiguration()
+    var jira = JiraConfiguration()
 
-    override fun getState() = jiraConfiguration
+    override fun getState() = jira
 
     override fun loadState(state: JiraConfiguration) {
-        jiraConfiguration = state
+        jira = state
     }
+
+    override fun resetState() = loadState(JiraConfiguration())
 }

@@ -6,17 +6,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.procyk.maciej.tcgenerator.services.ApplicationService"/>
-        <projectService serviceImplementation="com.procyk.maciej.tcgenerator.services.ProjectService"/>
+        <applicationConfigurable instance="com.procyk.maciej.tcgenerator.ui.SettingsService"/>
     </extensions>
 
-    <projectListeners>
-        <listener class="com.procyk.maciej.tcgenerator.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </projectListeners>
     <actions>
-        <action id="com.procyk.maciej.tcgenerator.GenerateTestCaseAction"
-                class="com.procyk.maciej.tcgenerator.GenerateTestCaseAction"
+        <action id="com.procyk.maciej.tcgenerator.actions.GenerateTestCaseAction"
+                class="com.procyk.maciej.tcgenerator.actions.GenerateTestCaseAction"
                 text="Test Case"
                 description="Generate test case based on specified template">
             <add-to-group group-id="NewGroup" relative-to-action="NewFromTemplate" anchor="after"/>

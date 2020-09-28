@@ -25,3 +25,9 @@
 ### Added
 - created Jira Provider for test case generator (password stored in system credentials store, confiugration stored in xml file)
 - created Freemarker Template Parser
+
+## [0.1.0]
+### Added
+- integrated Jira Provider and Freemarker template parser with test case generation action
+- settings reset added
+- plugin fully working and useful for Jira API with Freemarker templates
