@@ -36,6 +36,7 @@ dependencies {
         implementation(group = "com.github.kittinunf.fuel", name = it, version = "2.2.3")
     }
     implementation("org.freemarker:freemarker:2.3.30")
+    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:0.11.1")
 }
 
 intellij {

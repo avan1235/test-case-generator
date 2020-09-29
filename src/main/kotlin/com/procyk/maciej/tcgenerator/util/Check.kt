@@ -8,6 +8,6 @@ fun <T> T?.throwOnNull(message: String? = null): T {
     return this
 }
 
-class ValidationException(message: String?) : Exception(message ?: "No info")
+open class ValidationException(message: String?) : Exception(message ?: "No info")
 
 object Valid

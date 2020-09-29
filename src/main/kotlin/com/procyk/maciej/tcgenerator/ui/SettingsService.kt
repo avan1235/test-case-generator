@@ -41,7 +41,10 @@ class SettingsService : SearchableConfigurable {
         TemplateConfigurationService.instance.template.rememberSettings,
     ).any { it }
 
-    override fun apply() = Unit
+    override fun apply() {
+        JiraConfigurationService.instance.loadState(JiraConfigurationService.instance.jira)
+        TemplateConfigurationService.instance.loadState(TemplateConfigurationService.instance.template)
+    }
 
     override fun getDisplayName() = "Test Case Generator"
 

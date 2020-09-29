@@ -38,7 +38,7 @@ class GenerateTestCaseAction : AnAction() {
             val parser = getTemplateParser(template)
             val merged = parser.mergeWithTemplate(testCase, userInput)
             val file = PsiFileFactory.getInstance(project).createFileFromText(
-                userInput.value + ".case.ts",
+                userInput.value + getNormalizedFileExtension(),
                 PlainTextLanguage.INSTANCE,
                 merged
             )
@@ -55,10 +55,15 @@ class GenerateTestCaseAction : AnAction() {
     override fun update(event: AnActionEvent) {
         manageVisibility(event)
     }
+}
 
-    private fun getTemplateParser(template: File): TemplateParser = FreemarkerTemplateParser(template)
+private fun getTemplateParser(template: File): TemplateParser = FreemarkerTemplateParser(template)
 
-    private fun getTestCaseProviderRequester(): TestCaseProviderRequester<*> = JiraConfigurationRequest
+private fun getTestCaseProviderRequester(): TestCaseProviderRequester<*> = JiraConfigurationRequest
+
+private fun getNormalizedFileExtension(): String {
+    val input = TemplateConfigurationService.instance.template.savedFileExtension
+    return if (input.startsWith('.')) input else ".$input"
 }
 
 private fun extractActionDirectory(event: AnActionEvent): PsiDirectory? =

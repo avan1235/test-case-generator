@@ -6,10 +6,12 @@ import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.procyk.maciej.tcgenerator.model.ConfigurationService
+import com.procyk.maciej.tcgenerator.util.validateFilePath
 import java.io.File
 
 data class TemplateConfiguration(
     var templateFilePath: String = "",
+    var savedFileExtension: String = "",
     var rememberSettings: Boolean = false,
 )
 
@@ -23,11 +25,7 @@ class TemplateConfigurationService : PersistentStateComponent<TemplateConfigurat
 
         val templateFile: File?
             get() {
-                val file = File(instance.template.templateFilePath)
-                if (!file.exists() || file.isDirectory) {
-                    return null
-                }
-                return file
+                return validateFilePath(instance.template.templateFilePath)
             }
     }
 

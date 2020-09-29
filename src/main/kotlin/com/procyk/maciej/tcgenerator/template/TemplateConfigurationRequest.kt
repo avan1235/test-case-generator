@@ -32,6 +32,9 @@ private class TemplateConfigurationDialog : DialogWrapper(true) {
                 prop = instance.template::templateFilePath
             )
         }
+        row("Saved file extension") {
+            textField(instance.template::savedFileExtension)
+        }
         row {
             checkBox(
                 "Remember",
