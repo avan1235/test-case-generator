@@ -2,6 +2,7 @@ package com.procyk.maciej.tcgenerator.providers.jira
 
 import com.intellij.credentialStore.askCredentials
 import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.ui.layout.LayoutBuilder
 import com.intellij.ui.layout.panel
 import com.procyk.maciej.tcgenerator.model.ConfigurationRequest
 import com.procyk.maciej.tcgenerator.model.TestCaseProviderRequester
@@ -27,30 +28,36 @@ object JiraConfigurationRequest : TestCaseProviderRequester<JiraProvider>, Confi
 
     override fun configure(): Valid? {
         if (!instance.jira.rememberSettings) {
-            return JiraConfigurationDialog().showAndGet().validate()
+            return JiraConfigurationDialog(instance.jira).showAndGet().validate()
         }
         return Valid
     }
 }
 
-private class JiraConfigurationDialog : DialogWrapper(true) {
+internal class JiraConfigurationDialog(private val configuration: JiraConfiguration) : DialogWrapper(true) {
+    companion object {
+        fun createInternal(configuration: JiraConfiguration): LayoutBuilder.() -> Unit = {
+            row("Jira URL:") {
+                textField(configuration::url).focused()
+            }
+            row("Jira username:") {
+                textField(configuration::username)
+            }
+            row {
+                checkBox(
+                    "Remember",
+                    configuration::rememberSettings
+                )
+            }
+        }
+    }
+
     init {
         init()
         title = "Generate Test Case"
     }
 
     override fun createCenterPanel() = panel {
-        row("Jira URL:") {
-            textField(instance.jira::url)
-        }
-        row("Jira username:") {
-            textField(instance.jira::username)
-        }
-        row {
-            checkBox(
-                "Remember",
-                instance.jira::rememberSettings
-            )
-        }
+        createInternal(configuration)()
     }
 }

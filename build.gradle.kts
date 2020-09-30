@@ -30,6 +30,7 @@ repositories {
     jcenter()
 }
 dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.4.10")
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.13.1")
 
     listOf("fuel", "fuel-coroutines", "fuel-jackson").forEach {

@@ -22,7 +22,7 @@ private class UserInputDialog(private val userInput: UserInput) : DialogWrapper(
 
     override fun createCenterPanel() = panel {
         row("Test Case:") {
-            textField(userInput::value)
+            textField(userInput::value).focused()
         }
     }
 }
