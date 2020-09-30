@@ -7,6 +7,17 @@
 
 ## [0.1.1]
 ### Added
+- Csv Provider available in settings
+
+### Fixed
+- saving states of settings to computer storage
+
+### Changed
+- settings now contain all options, not only reset buttons
+
+
+## [0.1.1]
+### Added
 - CsvProvider as test cases source
 
 ### Changed
