@@ -5,7 +5,7 @@
 ## [Unreleased]
 ### Added
 
-## [0.1.1]
+## [0.1.2]
 ### Added
 - Csv Provider available in settings
 
