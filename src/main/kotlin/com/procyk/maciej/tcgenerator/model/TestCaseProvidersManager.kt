@@ -18,5 +18,5 @@ object TestCaseProvidersManager {
 
     fun getAvailableProviders() = providersMap.keys
 
-    fun getProvider() = providersMap[TestCaseProvidersConfigurationService.instance.providers.providerName]
+    fun getProvider() = providersMap[TestCaseProvidersConfigurationService.instance.state.providerName]
 }

@@ -13,20 +13,18 @@ data class TestCaseProvidersConfiguration(
 @Service
 @State(name = "ProvidersConfiguration", storages = [Storage("providerConfiguration.xml")])
 class TestCaseProvidersConfigurationService :
-    PersistentStateComponent<TestCaseProvidersConfiguration>, ConfigurationService {
+    PersistentStateComponent<TestCaseProvidersConfiguration> {
 
     companion object {
         val instance: TestCaseProvidersConfigurationService
             get() = ServiceManager.getService(TestCaseProvidersConfigurationService::class.java)
     }
 
-    var providers = TestCaseProvidersConfiguration()
+    private var providers = TestCaseProvidersConfiguration()
 
     override fun getState() = providers
 
     override fun loadState(state: TestCaseProvidersConfiguration) {
         providers = state
     }
-
-    override fun resetState() = loadState(TestCaseProvidersConfiguration())
 }

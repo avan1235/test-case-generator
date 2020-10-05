@@ -5,7 +5,6 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
-import com.procyk.maciej.tcgenerator.model.ConfigurationService
 import com.procyk.maciej.tcgenerator.util.validateFilePath
 import java.io.File
 
@@ -17,7 +16,7 @@ data class TemplateConfiguration(
 
 @Service
 @State(name = "TemplateConfiguration", storages = [Storage("templateConfiguration.xml")])
-class TemplateConfigurationService : PersistentStateComponent<TemplateConfiguration>, ConfigurationService {
+class TemplateConfigurationService : PersistentStateComponent<TemplateConfiguration> {
 
     companion object {
         val instance: TemplateConfigurationService
@@ -29,13 +28,11 @@ class TemplateConfigurationService : PersistentStateComponent<TemplateConfigurat
             }
     }
 
-    var template = TemplateConfiguration()
+    private var template = TemplateConfiguration()
 
     override fun getState() = template
 
     override fun loadState(state: TemplateConfiguration) {
         template = state
     }
-
-    override fun resetState() = loadState(TemplateConfiguration())
 }

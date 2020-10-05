@@ -62,7 +62,7 @@ private fun getTemplateParser(template: File): TemplateParser = FreemarkerTempla
 private fun getTestCaseProviderRequester(): TestCaseProviderRequester<*> = JiraConfigurationRequest
 
 private fun getNormalizedFileExtension(): String {
-    val input = TemplateConfigurationService.instance.template.savedFileExtension
+    val input = TemplateConfigurationService.instance.state.savedFileExtension
     return if (input.startsWith('.')) input else ".$input"
 }
 

@@ -1,9 +1,10 @@
-<!-- Keep a Changelog guide -> https://keepachangelog.com -->
-
 # Test Case Generator Changelog
 
-## [Unreleased]
-### Added
+
+## [0.1.3]
+### Fixed
+- Code cleanup
+- Settings managing via IDE preferences made simpler to avoid bugs
 
 ## [0.1.2]
 ### Added

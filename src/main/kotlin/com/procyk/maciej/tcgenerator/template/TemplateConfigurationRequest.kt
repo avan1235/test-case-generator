@@ -12,8 +12,8 @@ import com.procyk.maciej.tcgenerator.util.validate
 object TemplateConfigurationRequest : ConfigurationRequest {
 
     override fun configure(): Valid? {
-        if (!instance.template.rememberSettings) {
-            return TemplateConfigurationDialog(instance.template).showAndGet().validate()
+        if (!instance.state.rememberSettings) {
+            return TemplateConfigurationDialog(instance.state).showAndGet().validate()
         }
         return Valid
     }

@@ -23,12 +23,12 @@ object JiraConfigurationRequest : TestCaseProviderRequester<JiraProvider>, Confi
             isCheckExistingBeforeDialog = true,
             isResetPassword = false
         )?.credentials?.getPasswordAsString() ?: ""
-        return JiraProvider(instance.jira, JiraCredentials(password))
+        return JiraProvider(instance.state, JiraCredentials(password))
     }
 
     override fun configure(): Valid? {
-        if (!instance.jira.rememberSettings) {
-            return JiraConfigurationDialog(instance.jira).showAndGet().validate()
+        if (!instance.state.rememberSettings) {
+            return JiraConfigurationDialog(instance.state).showAndGet().validate()
         }
         return Valid
     }
