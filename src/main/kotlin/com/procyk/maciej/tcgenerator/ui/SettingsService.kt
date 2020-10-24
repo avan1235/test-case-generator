@@ -4,6 +4,7 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.ui.layout.panel
+import com.procyk.maciej.tcgenerator.model.TestCaseProvidersConfiguration
 import com.procyk.maciej.tcgenerator.model.TestCaseProvidersConfigurationService
 import com.procyk.maciej.tcgenerator.model.TestCaseProvidersManager
 import com.procyk.maciej.tcgenerator.providers.jira.JiraConfiguration
@@ -11,6 +12,7 @@ import com.procyk.maciej.tcgenerator.providers.jira.JiraConfigurationService
 import com.procyk.maciej.tcgenerator.template.TemplateConfiguration
 import com.procyk.maciej.tcgenerator.template.TemplateConfigurationService
 import javax.swing.DefaultComboBoxModel
+import javax.swing.JComponent
 
 @Service
 class SettingsService : SearchableConfigurable {
@@ -31,15 +33,15 @@ class SettingsService : SearchableConfigurable {
                 TemplateConfigurationService.instance.loadState(TemplateConfiguration())
             }
         }
-        row {
+        row("Test Case Provider") {
             comboBox(
-                DefaultComboBoxModel(TestCaseProvidersManager.getAvailableProviders().toTypedArray()),
+                DefaultComboBoxModel(TestCaseProvidersManager.getAvailableProvidersNames().toTypedArray()),
                 TestCaseProvidersConfigurationService.instance.state::providerName
             )
         }
     }
 
-    override fun isModified() = false
+    override fun isModified() = true
 
     override fun apply() = Unit
 

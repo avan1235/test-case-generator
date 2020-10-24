@@ -10,6 +10,7 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiFileFactory
 import com.intellij.util.IncorrectOperationException
 import com.procyk.maciej.tcgenerator.model.TestCaseProviderRequester
+import com.procyk.maciej.tcgenerator.model.TestCaseProvidersManager
 import com.procyk.maciej.tcgenerator.model.TestCaseRequest.Companion.collectUserInputToAndGetGenerator
 import com.procyk.maciej.tcgenerator.model.UserInput
 import com.procyk.maciej.tcgenerator.providers.jira.JiraConfigurationRequest
@@ -49,6 +50,8 @@ class GenerateTestCaseAction : AnAction() {
             showNotification("Invalid operation: ${e.message}")
         } catch (e: ValidationException) {
             showNotification("Test Case Generation process canceled: ${e.message}")
+        } catch (e: Exception) {
+            showNotification("Unknown error. Please report with stacktrace: ${e.stackTrace}")
         }
     }
 
@@ -59,7 +62,7 @@ class GenerateTestCaseAction : AnAction() {
 
 private fun getTemplateParser(template: File): TemplateParser = FreemarkerTemplateParser(template)
 
-private fun getTestCaseProviderRequester(): TestCaseProviderRequester<*> = JiraConfigurationRequest
+private fun getTestCaseProviderRequester(): TestCaseProviderRequester<*> = TestCaseProvidersManager.getProvider().createRequest()
 
 private fun getNormalizedFileExtension(): String {
     val input = TemplateConfigurationService.instance.state.savedFileExtension

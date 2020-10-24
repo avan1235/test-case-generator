@@ -5,7 +5,10 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/15116.svg)](https://plugins.jetbrains.com/plugin/15116)
 
 <!-- Plugin description -->
+
 This Test Case Generator IntelliJ Platform Plugin that makes tests generations templates easy thanks to external data providers for test steps.
+
+It also makes it easy to generate your test cases in desired form thanks to included template parsers.
 
 Current implementations includes
 

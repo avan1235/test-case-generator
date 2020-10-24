@@ -7,7 +7,7 @@ plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.4.10"
     id("org.jetbrains.intellij") version "0.4.22"
-    id("org.jetbrains.changelog") version "0.5.0"
+    id("org.jetbrains.changelog") version "0.6.2"
     id("io.gitlab.arturbosch.detekt") version "1.13.1"
     id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
 }
@@ -102,7 +102,6 @@ tasks {
     }
 
     publishPlugin {
-        dependsOn("patchChangelog")
         token(System.getenv("PUBLISH_TOKEN"))
         channels(pluginVersion.split('-').getOrElse(1) { "default" }.split('.').first())
     }

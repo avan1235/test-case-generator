@@ -9,6 +9,8 @@ private val PROVIDERS_FACTORIES = listOf(
     CsvRequesterFactory::class,
 )
 
+private val DEFAULT_PROVIDER_FACTORY = JiraRequesterFactory::class
+
 object TestCaseProvidersManager {
 
     private val providersMap = PROVIDERS_FACTORIES
@@ -16,7 +18,15 @@ object TestCaseProvidersManager {
         .map { it.getUniqueName() to it }
         .toMap()
 
-    fun getAvailableProviders() = providersMap.keys
+    fun getAvailableProvidersNames(): List<String> {
+        val all = providersMap.keys.toMutableList()
+        val selected = getProviderName()
+        all.remove(selected)
+        all.add(0, selected)
+        return all.toList()
+    }
 
-    fun getProvider() = providersMap[TestCaseProvidersConfigurationService.instance.state.providerName]
+    fun getProvider() = providersMap[getProviderName()] ?: ServiceManager.getService(DEFAULT_PROVIDER_FACTORY.java)
+
+    fun getProviderName() = TestCaseProvidersConfigurationService.instance.state.providerName
 }

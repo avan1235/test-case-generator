@@ -1,7 +1,10 @@
 # Test Case Generator Changelog
 
 ## [Unreleased]
-### Added
+
+## [0.1.4]
+### Fixed
+- Settings manager get fixed provider selection
 
 ## [0.1.3]
 ### Fixed
