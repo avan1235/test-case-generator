@@ -4,7 +4,6 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.options.SearchableConfigurable
 import com.intellij.ui.layout.panel
-import com.procyk.maciej.tcgenerator.model.TestCaseProvidersConfiguration
 import com.procyk.maciej.tcgenerator.model.TestCaseProvidersConfigurationService
 import com.procyk.maciej.tcgenerator.model.TestCaseProvidersManager
 import com.procyk.maciej.tcgenerator.providers.jira.JiraConfiguration
@@ -12,7 +11,6 @@ import com.procyk.maciej.tcgenerator.providers.jira.JiraConfigurationService
 import com.procyk.maciej.tcgenerator.template.TemplateConfiguration
 import com.procyk.maciej.tcgenerator.template.TemplateConfigurationService
 import javax.swing.DefaultComboBoxModel
-import javax.swing.JComponent
 
 @Service
 class SettingsService : SearchableConfigurable {
