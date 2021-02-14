@@ -52,7 +52,7 @@ class GenerateTestCaseAction : AnAction() {
         } catch (@Suppress("TooGenericExceptionCaught") e: Exception) {
             showNotification(
                 "Unknown error. Please report with stacktrace:\n" +
-                e.stackTrace.joinToString("\n") { it.toString() }
+                    e.stackTrace.joinToString("\n") { it.toString() }
             )
         }
     }
