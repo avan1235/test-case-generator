@@ -50,7 +50,8 @@ class GenerateTestCaseAction : AnAction() {
         } catch (e: ValidationException) {
             showNotification("Test Case Generation process canceled: ${e.message}")
         } catch (@Suppress("TooGenericExceptionCaught") e: Exception) {
-            showNotification("Unknown error. Please report with stacktrace:\n" +
+            showNotification(
+                "Unknown error. Please report with stacktrace:\n" +
                 e.stackTrace.joinToString("\n") { it.toString() }
             )
         }
