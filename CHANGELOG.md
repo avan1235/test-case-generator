@@ -1,5 +1,11 @@
 # Test Case Generator Changelog
 
+## [0.1.5]
+### Added
+- IDEA 203 supported
+### Fixed
+- Stack trace on error properly printing
+
 ## [0.1.4]
 ### Fixed
 - Settings manager get fixed provider selection
